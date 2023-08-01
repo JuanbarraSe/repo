@@ -1,0 +1,5 @@
+genero = input("¿cual es tu genero?: ")
+print("Tu genero es", genero,)
+
+pais = input("ingrese su pais de nacimiento: ")
+print("Tu pais de nacimiento es", pais,)
