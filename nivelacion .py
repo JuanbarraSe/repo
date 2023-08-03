@@ -1,14 +1,16 @@
 print("Bienvenido a " )
-print("""                    ###                                  ##      ###      ###
+print("""   
+                   ###                                  ##      ###      ###
   #####    ####      ##      ####             ##  ##              ##       ##      ####     #####
  ##       ##  ##     ##     ##  ##            ######    ###       ##       ##     ##  ##   ##
   ####    ##  ##     ##     ##  ##            ######     ##       ##       ##     ##  ##    ####
      ##   ##  ##     ##     ##  ##            ##  ##     ##       ##       ##     ##  ##       ##
- #####     ####     ####     ####             ##  ##    ####     ####     ####     ####    #####
+ #####     ####     ####     ####    04       ##  ##    ####     ####     ####     ####    #####
 
 
 """)
 #solicitar nombre
+
 nombre = input("Por favor ingresa tu nombre: ")
 
 print("Hola ", nombre, ", bienvenido a SOLO MILLOS.")
@@ -27,10 +29,6 @@ print("--------------------------------------------------")
 print("Nombre:  ", nombre)
 print("Edad:    ", edad, "años")
 print("ciudad: ", ciudad)
-genero = input("¿cual es tu genero?: ")
-print("Tu genero es", genero,)
-pais = input("ingrese su pais de nacimiento: ")
-print("Tu pais de nacimiento es", pais,)
 print("Gracias por tu informacion,  que  disfrutes de SOLO MILLOS ")
 mensaje = input("Ahora puedes escribir tu primer mensaje. ¿como estas hoy?")
 print("--------------------------------------------------")
@@ -43,13 +41,39 @@ sexo = input(" Por favor ingresa tu sexo")
 print("tu sexo es  :", sexo)
 millos = input("¿apoyas a millos?: ")
 print("apoyas a millos:", millos )
+pais = input("ingrese su pais de nacimiento: ")
+print("Tu pais de nacimiento es", pais,)
+
+def mostrar_menu():
+    print("______menu____")
+    print("1. opcion 1")
+    print("2. opcion 2")
+    print("3. opcion 3")
+    print("4. opcion 4")
+    
+    opcion = 0
+
+    while opcion != 4:
+        mostrar_menu()
+    opcion =int(input("ingrese el numero de la opcion que desea: "))
+    if opcion == 1:
+         print("Has elegido la opcion 1. ")
+    elif opcion == 2:
+         print("Has elegido la opcion 2: ")
+    elif opcion == 3:
+         print("Has elegido la opcion 3. ") 
+    elif opcion == 4:
+         print("saliendo del menu...")    
+    else:
+         print("opcion invalida por favo eliga una opcion valida.")
+
 print("GRACIAS POR ESTAR EN")
-print("""###                                  ##      ###      ###
+print("""###                                  ##  ##   ###      ###
   #####    ####      ##      ####             ##  ##              ##       ##      ####     #####
  ##       ##  ##     ##     ##  ##            ######    ###       ##       ##     ##  ##   ##
   ####    ##  ##     ##     ##  ##            ######     ##       ##       ##     ##  ##    ####
      ##   ##  ##     ##     ##  ##            ##  ##     ##       ##       ##     ##  ##       ##
- #####     ####     ####     ####             ##  ##    ####     ####     ####     ####    #####
+ #####     ####     ####     ####    04       ##  ##    ####     ####     ####     ####    #####
 
 """)
 print(" adios, que estes bien")
