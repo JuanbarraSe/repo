@@ -32,7 +32,7 @@ print("ciudad: ", ciudad)
 print("Gracias por tu informacion,  que  disfrutes de SOLO MILLOS ")
 mensaje = input("Ahora puedes escribir tu primer mensaje. ¿como estas hoy?")
 print("--------------------------------------------------")
-print(nombre, "gracias por contarnos mas de ti; el dice", mensaje)
+print(nombre, "gracias por contarnos mas de ti")
 print("--------------------------------------------------")
 print("bien ahora   queremos saber mas de ti")
 barrio = input(" ¿en que barrio vives?: ")
@@ -43,7 +43,8 @@ millos = input("¿apoyas a millos?: ")
 print("apoyas a millos:", millos )
 pais = input("ingrese su pais de nacimiento: ")
 print("Tu pais de nacimiento es", pais,)
-
+amigo= (input ("ahora queremos que nos recomiendes a un amigo o familiar, ingresa un correo electronico:  "))
+print("gracias por recomendarnos a un familiar o amigo =)", )
 def mostrar_menu():
     print("______menu____")
     print("1. opcion 1")
@@ -76,4 +77,4 @@ print("""###                                  ##  ##   ###      ###
  #####     ####     ####     ####    04       ##  ##    ####     ####     ####     ####    #####
 
 """)
-print(" adios, que estes bien")
+print(" adios, que tengas un lindo dia ")
