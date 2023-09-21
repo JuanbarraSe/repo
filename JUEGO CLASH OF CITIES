@@ -53,8 +53,5 @@ class Millos:
         
 
 class Peleador(Millos):
-    pass
-
-pou= Peleador ("Bob", 25, 30, 100)
-
-print(pou.nombre)
+     def __init__(self, nivel):
+       super().__init__("Peleador", 40, 10, 50)
