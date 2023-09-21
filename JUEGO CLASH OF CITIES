@@ -12,33 +12,49 @@ class Millos:
         
         
     def atributos(self): 
-        print(self.__nombre, ":", sep="")
+        print(self.nombre, ":", sep="")
         print("fuerza:", self.__fuerza)
         print("defensa:", self.__defensa)
         print("vida:", self.__vida)   
         
     def subir_nivel(self, fuerza, defensa):
-        self.__fuerza= self.__fuerza + fuerza 
-        self.__defensa= self.__defensa + defensa
+        self.fuerza= self.__fuerza + fuerza 
+        self.defensa= self.__defensa + defensa
     
     def esta_vivo(self):
         return self.__vida > 0 
     
-    def morir(self):
+    def __morir(self):
         self.__vida = 0
-        print(self.__nombre,"has muerto")
+        print(self.__nombre,"Ha muerto")
 
     def daño(self,enemigo):
-        return self.__fuerza - enemigo.defensa
+        return self.__fuerza - enemigo.__defensa
     
     def atacar(self,enemigo):
         daño = self.daño(enemigo) 
         enemigo.__vida = enemigo.__vida - daño
-        print(self.__nombre,"Ha realizado", daño, "Puntos de daño a", enemigo.nombre)
+        print(self.__nombre,"Ha realizado", daño, "Puntos de daño a", enemigo.__nombre)
         if enemigo.esta_vivo():
-         print("La vida de", enemigo.nombre , "Es", enemigo.vida)
+        
+         print("La vida de", enemigo.__nombre , "Es", enemigo.__vida)
         else:
             enemigo.__morir()
+    
+    def get_fuerza(self):
+        return self.__fuerza
+    
+    def set_fuerza(self,fuerza):
+        if fuerza < 0:
+            print("Error, has introducido un valor negativo")
+            
+        else:
+          self.__fuerza = fuerza
+        
 
-mi_millos = Millos("Duvan", 100, 50, 100)
-mi_enemigo = Millos("Rai",3,20,5)
+class Peleador(Millos):
+    pass
+
+pou= Peleador ("Bob", 25, 30, 100)
+
+print(pou.nombre)
