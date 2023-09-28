@@ -1,0 +1,53 @@
+import pygame
+import sys
+
+# Inicializar Pygame
+pygame.init()
+
+# Configuración de la ventana
+ventana_ancho = 1500
+ventana_alto = 700
+ventana = pygame.display.set_mode((ventana_ancho, ventana_alto))
+pygame.display.set_caption("Mi_juego")
+fondo = pygame.image,pygame.image.load,('clash_of_city.png')
+# Configuración de colores
+color_fondo = (255, 255, 255)
+color_texto = (0, 0, 0)
+
+# Configuración del cuadro de texto
+fuente = pygame.font.Font(None, 36)
+texto = ""
+cuadro_activo = False
+print
+# Bucle principal del juego
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:
+            if cuadro_activo:
+                if event.key == pygame.K_RETURN:
+                    # Cuando se presiona Enter, puedes hacer algo con el texto ingresado
+                    print("Texto ingresado:", texto)
+                    texto = ""
+                elif event.key == pygame.K_BACKSPACE:
+                    texto = texto[:-1]
+                else:
+                    texto += event.unicode
+                    
+    #personaje= Peleador("yo")
+    #personaje.atributos()
+
+    # Limpia la pantalla
+    ventana.fill(color_fondo)
+
+    # Dibuja el cuadro de texto
+    cuadro_texto = fuente.render(texto, True, color_texto)
+    ventana.blit(cuadro_texto, (ventana_ancho // 2 - cuadro_texto.get_width() // 2, ventana_alto // 2 - cuadro_texto.get_height() // 2))
+
+    pygame.display.flip()
+
+# Salir del programa
+pygame.quit()
+sys.exit()
