@@ -1,0 +1,51 @@
+import pygame
+from pygame.locals import *
+import sys
+
+# Inicializar Pygame
+def main():
+ pygame.init()
+
+# Declaración de constantes y variables
+WHITE = (255, 255, 255)
+
+# Función principal del juego
+def main():
+  # Se inicializa el juego
+  pygame.init()
+  pygame.display.set_caption("Mi juego")
+  screen = pygame.display.set_mode((1500,600))
+  fondo = pygame.image.load('clash_of_city.png') 
+  
+  # Bucle principal
+  while True:
+
+    # 1.- Se dibuja la pantalla
+    screen.fill(WHITE)
+    screen.blit(fondo, (0, 0))
+
+
+    # 2.- Se comprueban los eventos
+    for event in pygame.event.get():
+      if event.type == QUIT:
+        pygame.quit()
+        sys.exit(0)
+
+    if event.type == KEYDOWN:
+        if event.key == K_LEFT:
+            personaje_x -= 10
+        if event.key == K_RIGHT:
+            personaje_x += 10
+        if event.key == K_UP:
+            personaje_y -= 10
+        if event.key == K_DOWN:
+            personaje_y += 10
+
+    
+
+    # 3.- Se actualiza la pantalla
+    pygame.display.update()
+
+# Este fichero es el que ejecuta el juego principal
+if __name__ == '__main__':
+  main()
