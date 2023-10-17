@@ -14,15 +14,15 @@ def main():
   # Se inicializa el juego
   pygame.init()
   pygame.display.set_caption("Mi juego")
-  screen = pygame.display.set_mode((1500,600))
-  fondo = pygame.image.load('clash_of_city.png') 
+  screen = pygame.display.set_mode((1190,625))
+  fondo = pygame.image.load('fondo2.png') 
   
   # Bucle principal
   while True:
 
     # 1.- Se dibuja la pantalla
     screen.fill(WHITE)
-    screen.blit(fondo, (0, 0))
+    screen.blit(fondo, (-2, -2))
 
 
     # 2.- Se comprueban los eventos
