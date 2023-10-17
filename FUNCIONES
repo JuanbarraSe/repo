@@ -1,0 +1,33 @@
+from random import randint
+
+
+def combate(j, e):
+    #presentar primer enemigo
+    print("")
+    print("*******Nuevo combate********")
+    print("")
+    print("ha aparecido," + e.nombre)
+    #informacion personajes
+    while j.vivo == True and e.vivo == True:
+        print("")
+        print("tu vida:" + str(j.vida))
+        print("tu defensa:" + str(j.defensa))
+        print("vida del enemigo:" + str(e.vida))
+        print("defensa del enemigo:" + str(e.defensa))
+
+        respuesta = ""
+        respuesta = input("¿que deseas hacer? a-Atacar("+str(j.ataque)+") / c-Curar(coste=" + str(j.costecuracion) +
+                          ",cantidad =" + str(j.curacion) + "):")
+        if respuesta == "a":
+            print("has decidido atacar:")
+            e.quitarvida(j.ataque)
+            if e.vivo == False:
+                break
+        elif respuesta == "c" and j.energia >= j.costecuracion:
+            print("has decidido curarte")
+            j.curar()
+
+        print("el" + e.nombre + " te ataca:" + str(e.ataque))
+        j.quitarvida(e.ataque)
+
+    print("has ganado el duelo")
