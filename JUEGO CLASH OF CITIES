@@ -9,7 +9,7 @@ class Millos:
         self.__fuerza = fuerza
         self.__defensa = defensa
         self.__vida = vida
-        
+        self.image = () #cargar posición básica
         
     def atributos(self): 
         print(self.nombre, ":", sep="")
@@ -31,7 +31,8 @@ class Millos:
     def daño(self,enemigo):
         return self.__fuerza - enemigo.__defensa
     
-    def atacar(self,enemigo):
+    def atacar_punno(self,enemigo):
+        #anima_punno
         daño = self.daño(enemigo) 
         enemigo.__vida = enemigo.__vida - daño
         print(self.__nombre,"Ha realizado", daño, "Puntos de daño a", enemigo.__nombre)
@@ -40,6 +41,10 @@ class Millos:
          print("La vida de", enemigo.__nombre , "Es", enemigo.__vida)
         else:
             enemigo.__morir()
+    
+    def anima_punno()
+       self.image = () #cargar video
+        
     
     def get_fuerza(self):
         return self.__fuerza
