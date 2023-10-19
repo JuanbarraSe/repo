@@ -1,0 +1,74 @@
+import pygame
+import sys 
+from FUNCIONES import combate
+import SOLO_MILLOS 
+
+# Inicializar Pygame
+def main ():
+ pygame.init()
+ 
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+# Configuración de la pantalla
+def main ():
+    pygame.init()
+screen_width = 1190
+screen_height = 625
+pygame.display.set_caption("Clash of city")
+screen = pygame.display.set_mode((screen_width, screen_height))
+fondo = pygame.image.load('fondo2.png') 
+
+  
+
+# Jugadores
+player1 = pygame.Rect(50, screen_height // 2, 50, 50)
+player2 = pygame.Rect(screen_width - 100, screen_height // 2, 50, 50)
+
+# Velocidad de los jugadores
+player1_speed = 10
+player2_speed = 10
+
+# Bucle principal del juego
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    combate(Peleador, enemigo)
+    
+    # Captura de teclas para el movimiento de los jugadores
+    
+    keys = pygame.key.get_pressed()
+    if keys [pygame.K_x]:
+        player1.x += player1_speed
+    if keys [pygame.K_z]:
+        player1.x -= player1_speed        
+    if keys[pygame.K_RIGHT]:
+        player1.y -= player1_speed
+    if keys[pygame.K_z]:
+        player1.y += player1_speed
+    if keys[pygame.K_UP]:
+        player2.y -= player2_speed
+    if keys[pygame.K_DOWN]:
+        player2.y += player2_speed
+    if keys[pygame.K_LEFT]:
+        player2.x -= player2_speed
+    if keys[pygame.K_RIGHT]:
+        player2.x += player2_speed
+    # Limpiar la pantalla
+    screen.fill(WHITE)
+    screen.blit(fondo, (-2, -2))
+
+
+    # Dibujar jugadores
+    pygame.draw.rect(screen, RED, player1)
+    pygame.draw.rect(screen, RED, player2)
+
+    # Actualizar la pantalla
+    pygame.display.flip()
+
+    # Limitar la velocidad de fotogramas
+    pygame.time.Clock().tick(60)
+
+    main( )
