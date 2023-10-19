@@ -1,0 +1,32 @@
+def combate(z, x):
+    #presentar primer enemigo
+    print("")
+    print("*****Nuevo combate**")
+    print("")
+    print("ha aparecido," + x.nombre)
+    #informacion personajes
+    while z.vivo == True y x.vivo == True:
+        print("")
+        print("tu vida:" + str(z.vida))
+        print("Tu defensa:" + str(x.defensa))
+        print("tu fuerza:" + str (x.fuerza))
+        print("vida del enemigo:" + str(z.vida))
+        print("Defensa del enemigo:" + str(x.defensa))
+        print("la fuerza del enemigo:" + str(x.fuerza))
+
+        respuesta = ""
+        respuesta = input("¿Qué deseas hacer? a-Atacar("+str(z.ataque)+") / c-Curar(coste=" + str(z.costecuracion) +
+                          ",cantidad =" + str(x.curacion) + "):")
+        if respuesta == "a":
+            print("has decidido atacar:")
+          x.quitarvida(j.ataque)
+        if z.vivo == Falso:
+            break
+        elif respuesta == "c" y z.energia >= z.costecuracion:
+         print("has decidido curarte")
+        z.curar()
+
+        print("el" + x.nombre + " te ataca:" + str(e.ataque))
+        x.quitarvida(z.ataque)
+
+    print("has ganado el duelo")
