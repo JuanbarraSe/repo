@@ -1,7 +1,7 @@
 import pygame
 import sys 
-from FUNCIONES import combate
-import SOLO_MILLOS 
+from funciones import combate
+import clases
 
 # Inicializar Pygame
 def main ():
@@ -13,20 +13,33 @@ RED = (255, 0, 0)
 def main ():
     pygame.init()
 screen_width = 1190
-screen_height = 625
+screen_height = 595
 pygame.display.set_caption("Clash of city")
 screen = pygame.display.set_mode((screen_width, screen_height))
-fondo = pygame.image.load('fondo2.png') 
+fondo = pygame.image.load('Fondo_clash_of_city.png') 
 
   
 
 # Jugadores
-player1 = pygame.Rect(50, screen_height // 2, 50, 50)
-player2 = pygame.Rect(screen_width - 100, screen_height // 2, 50, 50)
+player1 = pygame.Rect(50, screen_height // 5, 50, 50) 
+player1_image = [pygame.image.load('golpe1.png'), pygame.image.load('golpe2.png')]
+player1_image_index = 0
+
+
+#jugador 2
+player2 = pygame.Rect(screen_width - 100, screen_height // 5, 50, 50)
+player2_image = pygame.image.load('xd.png'), pygame.image.load('golpe2.j2.png')
+player2_image_index = 0
 
 # Velocidad de los jugadores
 player1_speed = 10
 player2_speed = 10
+
+#daño de los jugadores
+player1_damage = 10  
+player2_damage = 10
+player1_health = 100
+player2_health = 100
 
 # Bucle principal del juego
 while True:
@@ -35,35 +48,61 @@ while True:
             pygame.quit()
             sys.exit()
 
-    combate(Peleador, enemigo)
+    #combate(Peleador, enemigo)
     
     # Captura de teclas para el movimiento de los jugadores
     
     keys = pygame.key.get_pressed()
-    if keys [pygame.K_x]:
+    if keys [pygame.K_d] and player1.x < screen_width - player1.width:
         player1.x += player1_speed
-    if keys [pygame.K_z]:
+    if keys [pygame.K_a] and player1.x > 0:
         player1.x -= player1_speed        
-    if keys[pygame.K_RIGHT]:
+    if keys[pygame.K_w] and player1.y > 0:
         player1.y -= player1_speed
-    if keys[pygame.K_z]:
+    if keys[pygame.K_s] and player1.y < screen_height - player1.height:
         player1.y += player1_speed
-    if keys[pygame.K_UP]:
+    if keys[pygame.K_x]:    
+        player1_image_index = (player1_image_index + 1) % len(player1_image)
+    if player1.colliderect(player2):
+        print("el jugador ha muerto")
+      
+    if keys[pygame.K_UP] and player2.y > 0:
         player2.y -= player2_speed
-    if keys[pygame.K_DOWN]:
+    if keys[pygame.K_DOWN] and player2.y < screen_height - player2.height:
         player2.y += player2_speed
-    if keys[pygame.K_LEFT]:
+    if keys[pygame.K_LEFT] and player2.x > 0:
         player2.x -= player2_speed
-    if keys[pygame.K_RIGHT]:
+    if keys[pygame.K_RIGHT] and player2.x < screen_width - player2.width:
         player2.x += player2_speed
+    if keys[pygame.K_l]:
+         player2_image_index = (player2_image_index + 1) % len(player2_image)
+    if player2.colliderect(player1):
+        print("el jugador ha muerto")   
+
+    #daño
+    if player1.colliderect(player2):
+      player1_health -= player2_damage
+      player2_health -= player1_damage
+    if player1_health <= 0:
+        print ("usted ha sido derrotado")
+    if player2_health <= 0:
+        print ("usted ha sido derrotado")
+
+
     # Limpiar la pantalla
     screen.fill(WHITE)
     screen.blit(fondo, (-2, -2))
-
-
+    
     # Dibujar jugadores
-    pygame.draw.rect(screen, RED, player1)
-    pygame.draw.rect(screen, RED, player2)
+    pygame.draw.rect(screen,RED,player1)
+    pygame.draw.rect(screen,RED,player2)
+
+    screen.blit(player1_image[player1_image_index],player1)
+    screen.blit(player2_image[player2_image_index], player2)
+    
+    
+   
+   
 
     # Actualizar la pantalla
     pygame.display.flip()
