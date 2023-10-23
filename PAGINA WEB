@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clash of City - Juego de Batalla</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Título del juego */
+        h1 {
+            font-size: 36px;
+            margin-top: 0;
+        }
+
+        /* Descripción del juego */
+        p {
+            font-size: 18px;
+        }
+
+        /* Imagen del juego */
+        .game-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Enlace al juego */
+        .play-button {
+            display: inline-block;
+            background-color: #FF5733;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        /* Estilos responsive */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .play-button {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Clash of City</h1>
+        <h2>Prepárate para una batalla épica donde solo los más fuertes sobrevivirán.</h2>
+    </header>
+
+    <div class="container">
+        <p>Sabías que Clash of city  satisface varias necesidades, como entretenimiento y diversión, ya que este juego puede ayudarte en tus tiempos libres si deseas divertirte un rato, también te ayuda a tener estrategias y habilidades cognitivas, ya que esto se requiere de estrategia, tener buenos reflejos y la toma de decisión en tiempo real.
+            Clash of city se dirige a esas personas que disfrutan de la acción, la competencia y la emoción de estos combates virtuales. Esto incluye a jugadores de diferentes edades, géneros y niveles de habilidad. Sin embargo nuestro juego tiene una restricción de edad en el cual solo pueden jugarlo personas mayores de 13 años, debido a la violencia que se presenta.
+            Clash of city ofrece una experiencia emocionante y desafiante, donde los jugadores pueden sumergirse en combates intensos, así mismo disfrutar de un buen tiempo donde pueden mostrar sus habilidades. Así mismo brindando entrenamiento, desafío y diversión para aquellos amantes de la acción y la competencia.</p>
+        <img class="Fondo_clash_of_city.png" src="Fondo_clash_of_city.png" alt="Fondo_clash_of_city.png">
+        <p></p>
+        <a class="play-button" href="https://github.com/JuanbarraSe/repo/blob/fcedc83f73b02df3f9962644c6660aa8c2085dd1/MAIN2.0">¡Jugar Ahora!</a>
+    </div>
+</body>
+</html>
