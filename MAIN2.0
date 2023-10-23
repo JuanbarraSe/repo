@@ -1,14 +1,15 @@
 import pygame
 import sys 
-from funciones import combate
-import clases
 
 # Inicializar Pygame
 def main ():
  pygame.init()
+
  
-WHITE = (255, 255, 255)
-RED = (255, 0, 0)
+WHITE = (0, 0, 0)
+RED = (0, 0, 0)
+
+
 # Configuración de la pantalla
 def main ():
     pygame.init()
@@ -18,24 +19,98 @@ pygame.display.set_caption("Clash of city")
 screen = pygame.display.set_mode((screen_width, screen_height))
 fondo = pygame.image.load('Fondo_clash_of_city.png') 
 
-  
 
-# Jugadores
+# Barra de vida 
+class HealthBar:
+    def __init__(self, x, y, width, height, max_health):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.max_health = max_health
+        self.current_health = max_health
+
+    def update(self, new_health):
+        self.current_health = new_health
+
+    def draw(self, screen):
+
+ # Dibuja la barra de fondo en color gris
+        pygame.draw.rect(screen, (128, 128, 128), (self.x, self.y, self.width, self.height))
+
+
+# Calcula la longitud de la barra de vida en función de la salud actual
+        health_width = int((self.current_health / self.max_health) * self.width)
+
+
+ # Dibuja la barra de vida en color verde
+        pygame.draw.rect(screen, (0, 255, 0), (self.x, self.y, health_width, self.height))
+
+        player1_health_bar = HealthBar(50, 10, 200, 20, player1_health)
+        player2_health_bar = HealthBar(595, 10, 200, 20, player2_health)
+
+
+        player1_health_bar.update(player1_health)
+        player2_health_bar.update(player2_health)
+
+        player1_health_bar.draw(screen)
+        player2_health_bar.draw(screen)
+
+
+# Clase para la barra de vida
+class HealthBar:
+    def __init__(self, x, y, width, height, max_health):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.max_health = max_health
+        self.current_health = max_health
+
+    def update(self, new_health):
+        self.current_health = new_health
+
+    def draw(self, screen):
+        health_width = int((self.current_health / self.max_health) * self.width)
+        pygame.draw.rect(screen, RED, (self.x, self.y, health_width, self.height))
+        pygame.draw.rect(screen, RED, (self.x, self.y, self.width, self.height), 2)
+
+# Clase para el personaje
+class Character:
+    def __init__(self, x, y, health):
+        self.rect = pygame.Rect(x, y, 50, 50)
+        self.health = health
+
+    def take_damage(self, damage):
+        self.health -= damage
+
+# Crear personajes
+player1 = Character(50, screen_height // 2, 100)
+player2 = Character(700, screen_height // 2, 100)
+
+# Crear barras de vida para los personajes
+player1_health_bar = HealthBar(10, 10, 200, 20, player1.health)
+player2_health_bar = HealthBar(screen_width - 210, 10, 200, 20, player2.health)
+
+
+
+
+# Jugador 1
 player1 = pygame.Rect(50, screen_height // 5, 50, 50) 
 player1_image = [pygame.image.load('golpe1.png'), pygame.image.load('golpe2.png')]
 player1_image_index = 0
 
 
-#jugador 2
-player2 = pygame.Rect(screen_width - 100, screen_height // 5, 50, 50)
-player2_image = pygame.image.load('xd.png'), pygame.image.load('golpe2.j2.png')
+# Jugador 2
+player2 = pygame.Rect(595, screen_height // 5, 50, 50)
+player2_image = [pygame.image.load('posicion2_j2.png'), pygame.image.load('posicion1_j2.png')]
 player2_image_index = 0
 
 # Velocidad de los jugadores
 player1_speed = 10
 player2_speed = 10
 
-#daño de los jugadores
+#Daño de los jugadores
 player1_damage = 10  
 player2_damage = 10
 player1_health = 100
@@ -64,7 +139,7 @@ while True:
     if keys[pygame.K_x]:    
         player1_image_index = (player1_image_index + 1) % len(player1_image)
     if player1.colliderect(player2):
-        print("el jugador ha muerto")
+        print("GAME_OVER")
       
     if keys[pygame.K_UP] and player2.y > 0:
         player2.y -= player2_speed
@@ -77,37 +152,31 @@ while True:
     if keys[pygame.K_l]:
          player2_image_index = (player2_image_index + 1) % len(player2_image)
     if player2.colliderect(player1):
-        print("el jugador ha muerto")   
+        print("GAME_OVER")   
 
-    #daño
+    # Daño
     if player1.colliderect(player2):
       player1_health -= player2_damage
       player2_health -= player1_damage
     if player1_health <= 0:
-        print ("usted ha sido derrotado")
-    if player2_health <= 0:
-        print ("usted ha sido derrotado")
+        if player2_health <= 0:
 
 
     # Limpiar la pantalla
-    screen.fill(WHITE)
+            screen.fill(WHITE)
     screen.blit(fondo, (-2, -2))
     
     # Dibujar jugadores
-    pygame.draw.rect(screen,RED,player1)
-    pygame.draw.rect(screen,RED,player2)
+    pygame.draw.rect
+    pygame.draw.rect
 
     screen.blit(player1_image[player1_image_index],player1)
     screen.blit(player2_image[player2_image_index], player2)
     
-    
-   
-   
+
 
     # Actualizar la pantalla
     pygame.display.flip()
 
     # Limitar la velocidad de fotogramas
-    pygame.time.Clock().tick(60)
-
-    main( )
+    pygame.time.Clock().tick(30)
